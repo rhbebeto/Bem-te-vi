@@ -1,0 +1,110 @@
+body {
+    text-align: center;
+    margin-top: 50px;
+    background-color: #F0FFFF;
+    font-family: "Kanit", sans-serif;
+}
+
+h3 {
+    word-spacing: 5px;
+}
+
+/* Estilo para letras animadas */
+#animated-h1 span,
+#animated-h3 span {
+    display: inline-block;
+    opacity: 0;
+    transform: translateX(-50px); /* Letras começam fora da tela à esquerda */
+    animation: slideIn 0.5s forwards, swing 1s ease-in-out infinite; /* Animação de entrada e balanço */
+    animation-delay: calc(var(--i) * 0.1s); /* Atraso para cada letra */
+}
+
+/* Animação de entrada (da esquerda para direita) */
+@keyframes slideIn {
+    to {
+        opacity: 1;
+        transform: translateX(0); /* Letras entram na posição final */
+    }
+}
+
+/* Animação de balanço */
+@keyframes swing {
+    0% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(15deg);
+    }
+    50% {
+        transform: rotate(-10deg);
+    }
+    75% {
+        transform: rotate(5deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+/* Estilo do contêiner do pássaro */
+.bird-container {
+    position: relative; /* Para permitir a posição absoluta das notas */
+    display: inline-block; /* Ajusta o espaço ocupado pelo pássaro */
+    margin-top: 50px; /* Distância do topo */
+}
+
+/* Estilo da imagem do pássaro */
+#btv {
+    width: 300px; /* Largura do vídeo */
+    cursor: pointer; /* Aponta para o cursor ao passar por cima */
+    transition: transform 0.2s; /* Animação para o crescimento */
+}
+
+/* Efeito de crescimento ao clicar no pássaro */
+.bird-grow {
+    transform: scale(1.1); /* Aumenta o tamanho para 110% */
+}
+
+#notes {
+    position: absolute; /* Muda a posição para absoluta */
+    top: -50px; /* Ajusta a posição acima do pássaro */
+    left: 50%; /* Centraliza horizontalmente */
+    transform: translateX(-50%); /* Ajusta a posição para centralização correta */
+    display: flex; /* Utiliza flexbox para alinhar as notas */
+    justify-content: center; /* Centraliza o conteúdo horizontalmente */
+    width: 100%; /* Faz a largura ocupar todo o espaço disponível */
+    pointer-events: none; /* Impede interação com o contêiner de notas */
+}
+
+.note {
+    position: relative; /* Mantém a posição relativa em relação ao contêiner */
+    color: #ffcc00; /* Cor das notas */
+    font-size: 36px; /* Aumenta o tamanho das notas */
+    animation: floatUp 2s ease-in-out forwards; /* Adiciona animação de flutuação */
+}
+
+/* Animação de flutuação */
+@keyframes floatUp {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-100px);
+    }
+}
+
+.footer {
+    position: fixed; /* Fixa a posição no canto inferior direito */
+    bottom: 10px; /* Distância do fundo da página */
+    right: 10px; /* Distância da direita da página */
+    font-family: "Kanit", sans-serif; /* Use a mesma fonte para consistência */
+    color: #333; /* Cor do texto */
+    font-size: 12px; /* Tamanho do texto */
+    z-index: 1000; /* Garante que o texto fique acima de outros elementos */
+}
+
+.registered-symbol {
+    font-size: 14px; /* Ajusta o tamanho do símbolo R */
+}
